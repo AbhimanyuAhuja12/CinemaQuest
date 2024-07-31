@@ -1,7 +1,8 @@
 import { Play } from "lucide-react";
 import { Info } from "lucide-react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from 'react-redux';
+
 // eslint-disable-next-line react/prop-types
 const VideoTitle = ({ title, overview }) => {
   const id= useSelector((store)=>store?.movies?.nowPlayingMovies[2]?.id)

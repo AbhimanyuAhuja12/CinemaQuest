@@ -1,4 +1,4 @@
-import {  useSelector } from "react-redux/es/hooks/useSelector";
+import { useSelector } from 'react-redux';
 import VideoTitle from "./VideoTitle";
 import VideoBackground from "./VideoBackground";
 import { HomeShimmer } from "./Shimmer";
