@@ -1,7 +1,8 @@
-import { useSelector } from 'react-redux';
+
 import VideoTitle from "./VideoTitle";
 import VideoBackground from "./VideoBackground";
 import { HomeShimmer } from "./Shimmer";
+import { useSelector } from 'react-redux';
 
 const HeroContainer = () => {
   const movies = useSelector((store) => store.movies?.nowPlayingMovies);

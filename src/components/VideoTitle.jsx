@@ -1,7 +1,9 @@
 import { Play } from "lucide-react";
 import { Info } from "lucide-react";
-import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
+
+import { Link } from "react-router-dom";
+
 
 // eslint-disable-next-line react/prop-types
 const VideoTitle = ({ title, overview }) => {
