@@ -28,9 +28,12 @@ const Login = () => {
     // console.log(email.current.value);
     // console.log(password.current.value);
     seterrorMessage(message);
+     
+    if(message) return;
 
-
-    //If it is valid than I can proceed with SignIn/SignUp
+    //If it is valid than I can proceed with SignIn/SignUp the user
+    //Logic
+    
      
     }
 
