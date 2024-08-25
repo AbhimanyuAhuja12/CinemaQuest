@@ -3,7 +3,8 @@ import Header from './Header';
 import { BG_URL } from '../utils/constants';
 import { checkValidData } from '../utils/validate';
 
-
+import {createUserWithEmailAndPassword } from "firebase/auth";
+import { authc } from '../utils/firebase';
 
 
 const Login = () => {
@@ -32,8 +33,27 @@ const Login = () => {
     if(message) return;
 
     //If it is valid than I can proceed with SignIn/SignUp the user
-    //Logic
     
+    if(!isSignInForm){
+      //Signup Logic
+      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+  .then((userCredential) => {
+    // Signed up 
+    const user = userCredential.user;
+    console.log(user)
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    seterrorMessage(errorCode+"-"+ errorMessage)
+    // ..
+  });
+
+    }else{
+      //SignIn Logic
+
+    }
      
     }
 
