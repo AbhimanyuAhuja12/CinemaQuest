@@ -4,7 +4,7 @@ import { BG_URL } from '../utils/constants';
 import { checkValidData } from '../utils/validate';
 
 import {createUserWithEmailAndPassword } from "firebase/auth";
-import { authc } from '../utils/firebase';
+import { auth } from '../utils/firebase';
 
 
 const Login = () => {
