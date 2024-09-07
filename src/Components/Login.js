@@ -2,9 +2,11 @@ import { useRef, useState } from 'react';
 import Header from './Header';
 import { BG_URL } from '../utils/constants';
 import { checkValidData } from '../utils/validate';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { auth } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { addUser } from '../utils/userSlice';
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -13,42 +15,47 @@ const Login = () => {
   const toggleSignInForm = () => {
     setIsSignInForm(!isSignInForm);
   };
-   const navigate=useNavigate();
-   
+
+  // const navigate = useNavigate();
+  const dispatch=useDispatch();
+
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
   const phoneNo = useRef(null);
 
   const handleButtonClick = () => {
-  
-    // Validate the form data
     const emailValue = email.current?.value || '';
     const passwordValue = password.current?.value || '';
     const nameValue = name.current?.value || '';
     const phoneNoValue = phoneNo.current?.value || '';
-
+  
     const message = checkValidData(
       emailValue, 
       passwordValue, 
       phoneNoValue, 
       nameValue, 
-      // isSignInForm
+      isSignInForm
     );
-    
+  
     if (message) {
       setErrorMessage(message);
       return;
     }
-
-    // Proceed with SignIn/SignUp based on the form type
+  
     if (!isSignInForm) {
       // SignUp Logic
       createUserWithEmailAndPassword(auth, emailValue, passwordValue)
         .then((userCredential) => {
           const user = userCredential.user;
-          console.log('User created successfully:', user);
-          navigate("/browse");
+          return updateProfile(user, {
+            displayName: name.current.value, 
+            photoURL: "https://avatars.githubusercontent.com/u/114939151?v=4"
+          }).then(() => {
+            const { uid, displayName, email, photoURL } = user;
+            dispatch(addUser({ uid, email, displayName, photoURL }));
+            // navigate("/browse");
+          });
         })
         .catch((error) => {
           console.log('Error during signup:', error);
@@ -57,10 +64,12 @@ const Login = () => {
     } else {
       // SignIn Logic
       signInWithEmailAndPassword(auth, emailValue, passwordValue)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
           const user = userCredential.user;
-          console.log('User signed in successfully:', user);
-          navigate("/browse")
+          await user.reload(); // Ensure latest user data is loaded
+          const { uid, displayName, email, photoURL } = user;
+          dispatch(addUser({ uid, email, displayName, photoURL }));
+          // navigate("/browse");
         })
         .catch((error) => {
           console.log('Error during sign-in:', error);
@@ -68,6 +77,7 @@ const Login = () => {
         });
     }
   };
+  
 
   return (
     <div>
