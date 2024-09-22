@@ -59,7 +59,7 @@ const Login = () => {
           });
         })
         .catch((error) => {
-          console.log('Error during signup:', error);
+          // console.log('Error during signup:', error);
           setErrorMessage(`${error.code} - ${error.message}`);
         });
     } else {

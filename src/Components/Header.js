@@ -14,7 +14,7 @@ const Header = () => {
 
   // Correctly use useSelector as a function to access Redux state
   const user = useSelector(store => store.user);
-  console.log(user);
+  // console.log(user);
 
   const handleSignOut = () => {
     signOut(auth)
