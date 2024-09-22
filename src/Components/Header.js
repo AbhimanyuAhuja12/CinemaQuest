@@ -53,38 +53,30 @@ const Header = () => {
   },[])
 
   return (
-    <>
-      <div className='absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-full flex justify-between'>
-        <img className='w-44' src={LOGO} alt='CinemaQuest_Logo' />
+    <div className="absolute top-0  w-screen px-8 py-2 bg-transparent bg-gradient from-black to-transparent z-10  flex flex-col md:flex-row justify-between">
+      <img className="w-44 mx-auto md:mx-0 " src={LOGO} alt='CinemaQuest_Logo' />
 
-        {/* Sign out section */}
-        {user &&
-        <div className='relative'>
-          {/* Clickable image to toggle dropdown */}
+      {user && (
+        <div className='flex p-2 justify-between'>
           <img
             className='w-12 h-12 m-2 cursor-pointer'
             src={signoutImg}
             alt='SignOutImg'
-            onClick={toggleDropdown} // Toggle the dropdown on click
+            onClick={toggleDropdown} 
           />
-
-          {/* Dropdown */}
           {isOpen && (
             <div className='absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg py-4 z-20'>
-              {/* User Information */}
               <div className='flex items-center px-4 py-4'>
                 {user?.photoURL ? (
                   <img className='w-16 h-16 rounded-full' src={user.photoURL} alt='User Profile' />
                 ) : (
-                  <div className='w-16 h-16 bg-gray-300 rounded-full'></div> // Placeholder for no photo
+                  <div className='w-16 h-16 bg-gray-300 rounded-full'></div>
                 )}
                 <div className='ml-4'>
                   <p className='text-sm font-semibold'>{user?.displayName || 'Guest'}</p>
                 </div>
               </div>
               <hr className='my-2' />
-
-              {/* Sign Out Button */}
               <button
                 onClick={handleSignOut}
                 className='block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100'
@@ -94,11 +86,8 @@ const Header = () => {
             </div>
           )}
         </div>
-}
-      </div>
-        
-    </>
-        
+      )}
+    </div>
   );
 };
 
