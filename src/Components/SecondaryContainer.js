@@ -1,30 +1,28 @@
-import { useSelector } from "react-redux"
-import MovieList from "./MovieList"
-
+import { useSelector } from "react-redux";
+import MovieList from "./MovieList";
+import lang from "../utils/languageConstants";
 
 const SecondaryContainer = () => {
- 
   const movies = useSelector((store) => store.movies);
-  const TVshows =useSelector((store)=> store.TVshows);
-
-
+  const TVshows = useSelector((store) => store.TVshows);
+  const langKey = useSelector((store) => store.config.lang); 
 
   return movies.NowPlayingMovies && (
     <div className="bg-black">
       <div className="-mt-52 pl-12 relative z-20">
-      <MovieList title={"Now Playing"} movies={movies.NowPlayingMovies}/>
-      <MovieList title={"Upcoming Movies"} movies={movies.UpcomingMovies}/>
-      <MovieList title={"Top Rated"} movies={movies.TopRatedMovies}/>
-      <MovieList title={"Popular"} movies={movies.PopularMovies}/>
+        {/* Movie Lists */}
+        <MovieList title={lang[langKey].nowPlaying} movies={movies.NowPlayingMovies} />
+        <MovieList title={lang[langKey].upcomingMovies} movies={movies.UpcomingMovies} />
+        <MovieList title={lang[langKey].topRated} movies={movies.TopRatedMovies} />
+        <MovieList title={lang[langKey].popular} movies={movies.PopularMovies} />
 
-    
-    {/* TV SHOWS   */}
-      <MovieList title={"Top Rated TV shows"} movies={TVshows.TopRatedTVshows}/>
-      <MovieList title={"Airing Today shows"} movies={TVshows.AiringTodayshows}/>
-      <MovieList title={"Popular shows"} movies={TVshows.PopularShows}/>
+        {/* TV Shows Lists */}
+        <MovieList title={lang[langKey].topRatedTvShows} movies={TVshows.TopRatedTVshows} />
+        <MovieList title={lang[langKey].airingTodayShows} movies={TVshows.AiringTodayshows} />
+        <MovieList title={lang[langKey].popularShows} movies={TVshows.PopularShows} />
       </div>
     </div>
-  )
+  );
 }
 
-export default SecondaryContainer
+export default SecondaryContainer;
