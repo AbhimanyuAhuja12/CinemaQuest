@@ -4,7 +4,7 @@ export const LOGO =
 export const USER_AVATAR =
   "https://occ-0-6247-2164.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABdpkabKqQAxyWzo6QW_ZnPz1IZLqlmNfK-t4L1VIeV1DY00JhLo_LMVFp936keDxj-V5UELAVJrU--iUUY2MaDxQSSO-0qw.png?r=e6e";
 
-export const API_OPTIONS = {
+  export const API_OPTIONS = {
     method: 'GET',
     headers: {
       accept: 'application/json',
@@ -23,9 +23,11 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "spanish", name: "Spanish" },
 ];
 
-export const OPENAI_KEY = "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";
 
-export const GEMINI_API_KEY="AIzaSyCxeafjcjsoaQJipB2ruKqQGfPXtybq5OA";
+
+
 
 export const SEARCH_MOVIES = "https://api.themoviedb.org/3/search/movie?query=";
 
+
+export const GEMINI_API_KEY=process.env.REACT_APP_GEMINI_API_KEY;
