@@ -23,4 +23,9 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "spanish", name: "Spanish" },
 ];
 
-export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
+export const OPENAI_KEY = "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";
+
+export const GEMINI_API_KEY="AIzaSyCxeafjcjsoaQJipB2ruKqQGfPXtybq5OA";
+
+export const SEARCH_MOVIES = "https://api.themoviedb.org/3/search/movie?query=";
+
