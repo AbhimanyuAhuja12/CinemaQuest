@@ -23,10 +23,6 @@ export const SUPPORTED_LANGUAGES = [
   { identifier: "spanish", name: "Spanish" },
 ];
 
-
-
-
-
 export const SEARCH_MOVIES = "https://api.themoviedb.org/3/search/movie?query=";
 
 
