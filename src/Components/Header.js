@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { LOGO } from '../utils/constants';
+// import { LOGO } from '../utils/constants';
 import signoutImg from '../Assets/—Pngtree—vector logout icon_4233257.png';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { auth } from '../utils/firebase';
@@ -9,6 +9,7 @@ import { addUser, removeUser } from '../utils/userSlice';
 import { toggleGptSearchView } from '../utils/gptSlice';
 import { SUPPORTED_LANGUAGES } from '../utils/constants';
 import {changeLanguage} from '../utils/configSlice';
+import LOGO from "../Assets/logo (1).png";
 
 
 const Header = () => {
@@ -69,7 +70,7 @@ const Header = () => {
 
   return (
     <div className="absolute top-0  w-screen px-8 py-2 bg-transparent bg-gradient from-black to-transparent z-10  flex flex-col md:flex-row justify-between">
-      <img className="w-44 mx-auto md:mx-0 " src={LOGO} alt='CinemaQuest_Logo' />
+      <img className="w-48 pt-4 h-16 mx-auto md:ml-0 " src={LOGO} alt='CinemaQuest_Logo' />
 
       {user && (
         <div className='flex p-2 justify-between'>
