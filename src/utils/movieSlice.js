@@ -10,7 +10,10 @@ const movieSlice =createSlice({
         topRatedMovies: null,
         upcomingMovies: null,
         movieDetails: null,
+        favouriteMovies: JSON.parse(localStorage.getItem("favouriteMovies")) || [],
+       
     },
+
     reducers:{
         addNowPlayingMovies :(state,action)=>{
             state.NowPlayingMovies=action.payload;
@@ -33,9 +36,36 @@ const movieSlice =createSlice({
           addMovieDetails: (state, action) => {
             state.movieDetails = action.payload;
           },
-    },
-});
 
-export const {addNowPlayingMovies,addTrailerVideo,addPopularMovies,addUpcomingMovies,addTopRatedMovies,clearTrailerVideo,addMovieDetails}=movieSlice.actions;
+          addFavouriteMovie: (state, action) => {
+            const movie = action.payload;
+      
+            // Check if the movie is already in favourites
+            if (!state.favouriteMovies.find((m) => m.id === movie.id)) {
+              state.favouriteMovies.push(movie);
+      
+              // Save only favouriteMovies to localStorage
+              localStorage.setItem(
+                "favouriteMovies",
+                JSON.stringify(state.favouriteMovies)
+              );
+            }
+          },
+          removeFavouriteMovie: (state, action) => {
+            state.favouriteMovies = state.favouriteMovies.filter(
+              (m) => m.id !== action.payload.id
+            );
+      
+            // Update localStorage after removing a movie from favourites
+            localStorage.setItem(
+              "favouriteMovies",
+              JSON.stringify(state.favouriteMovies)
+            );
+          },
+        },
+    },
+);
+
+export const {addNowPlayingMovies,addTrailerVideo,addPopularMovies,addUpcomingMovies,addTopRatedMovies,clearTrailerVideo,addMovieDetails,addFavouriteMovie,removeFavouriteMovie}=movieSlice.actions;
 
 export default movieSlice.reducer;

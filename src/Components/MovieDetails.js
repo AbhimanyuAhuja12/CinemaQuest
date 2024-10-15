@@ -1,10 +1,15 @@
 import { useParams } from "react-router-dom";
 import useMovieDetails from "../hooks/useMovieDetails";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Spinner from "./Spinner";
+import { addFavouriteMovie , removeFavouriteMovie} from "../utils/movieSlice";
 
 const MovieDetails = () => {
   const { id } = useParams();
+  const dispatch = useDispatch();
+
+  const favouriteMovies = useSelector((store) => store?.movies?.favouriteMovies);
+
 
   useMovieDetails(id);
 
@@ -25,12 +30,31 @@ const MovieDetails = () => {
     vote_average,
     vote_count,
   } = movieDetails;
+  
+  const isFavourite = favouriteMovies.some(movie => movie.id === movieDetails.id); 
+
+  const handleAddFavourite = () => {
+    dispatch(addFavouriteMovie(movieDetails));
+  };
+
+  const handleRemoveFavourite = () => {
+    dispatch(removeFavouriteMovie(movieDetails));
+  };
+ 
 
   return (
-    <div className="text-white p-4 m-4 bg-gray-900 rounded-lg h-screen overflow-x-hidden border border-b-white">
+    <div className="text-white p-4 m-4 bg-gray-900 rounded-lg h-screen overflow-x-hidden border border-b-white ">
+
+      <div className="flex justify-between">
       <h1 className="text-center text-xl md:text-2xl font-bold mb-4">
         About this Movie
       </h1>
+      {!isFavourite ? (
+        <button className="text-white rounded-lg bg-red-700 px-2" onClick={handleAddFavourite}>Add to Favourite</button>
+      ) : (
+        <button  className="text-white rounded-lg bg-red-700 px-2" onClick={handleRemoveFavourite}>Remove from Favourite</button>
+      )}
+      </div>
       <div className="flex flex-col md:grid md:grid-cols-2 gap-4">
         <div>
           <h2 className="text-lg md:text-xl font-semibold">Name:</h2>
