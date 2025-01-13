@@ -1,15 +1,14 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
-import { auth } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { addUser, removeUser } from '../utils/userSlice';
-import { toggleGptSearchView } from '../utils/gptSlice';
-import { SUPPORTED_LANGUAGES } from '../utils/constants';
-import { changeLanguage } from '../utils/configSlice';
-import '../../src/Header.css';
-import { USER_AVATAR }from '../utils/constants';
-
+import React, { useState, useEffect, useRef } from "react";
+import { onAuthStateChanged, signOut } from "firebase/auth";
+import { auth } from "../utils/firebase";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser, removeUser } from "../utils/userSlice";
+import { toggleGptSearchView } from "../utils/gptSlice";
+import { SUPPORTED_LANGUAGES } from "../utils/constants";
+import { changeLanguage } from "../utils/configSlice";
+import "../../src/Header.css";
+import { USER_AVATAR } from "../utils/constants";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -20,7 +19,7 @@ const Header = () => {
   const dropdownRef = useRef(null);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const user = useSelector(store => store.user);
+  const user = useSelector((store) => store.user);
   const showGptSearch = useSelector((store) => store.gpt.showGptSearch);
 
   useEffect(() => {
@@ -34,8 +33,8 @@ const Header = () => {
       lastScrollY.current = currentScrollY;
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {
@@ -45,8 +44,8 @@ const Header = () => {
         setIsMobileMenuOpen(false);
       }
     };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -55,9 +54,9 @@ const Header = () => {
         setIsOpen(false);
       }
     };
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -82,7 +81,7 @@ const Header = () => {
       })
       .catch((error) => {
         // An error happened.
-        navigate('/error');
+        navigate("/error");
       });
   };
 
@@ -103,7 +102,11 @@ const Header = () => {
   };
 
   return (
-    <header className={`sticky top-0 z-50 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+    <header
+      className={`sticky top-0 z-50 transition-transform duration-300 ${
+        isVisible ? "translate-y-0" : "-translate-y-full"
+      }`}
+    >
       <div className="bg-gradient-to-b from-black to-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -139,7 +142,9 @@ const Header = () => {
                     className="bg-purple-700 bg-opacity-70 text-white px-4 py-2 rounded hover:bg-purple-600 transition-colors mr-4"
                     onClick={handleGptSearchClick}
                   >
-                    {showGptSearch ? "Home" : "GPT Search"}
+                   
+                   {showGptSearch ? "Home" : "GPT Search"}                      
+                    
                   </button>
                   <div className="relative" ref={dropdownRef}>
                     <button
@@ -152,8 +157,19 @@ const Header = () => {
                         className="w-8 h-8 rounded-full"
                       />
                       <span className="text-white">{user.displayName}</span>
-                      <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                      <svg
+                        className="w-4 h-4 text-white"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M19 9l-7 7-7-7"
+                        ></path>
                       </svg>
                     </button>
                     {isOpen && (
@@ -178,12 +194,36 @@ const Header = () => {
                 >
                   <span className="sr-only">Open main menu</span>
                   {isMobileMenuOpen ? (
-                    <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                    <svg
+                      className="block h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M6 18L18 6M6 6l12 12"
+                      />
                     </svg>
                   ) : (
-                    <svg className="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                    <svg
+                      className="block h-6 w-6"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M4 6h16M4 12h16M4 18h16"
+                      />
                     </svg>
                   )}
                 </button>
@@ -214,7 +254,7 @@ const Header = () => {
                 onClick={handleSignOut}
                 className="block w-full text-left px-4 py-2 text-sm text-white bg-gray-700 hover:bg-purple-600 transition-colors rounded"
               >
-                 Sign Out 
+                Sign Out
               </button>
             </div>
           </div>
@@ -225,4 +265,3 @@ const Header = () => {
 };
 
 export default Header;
-
