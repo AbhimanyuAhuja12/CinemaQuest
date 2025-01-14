@@ -19,15 +19,29 @@ const Login = () => {
   const phoneNo = useRef(null);
 
   const handleTestMode = () => {
-    const testUser = {
-      uid: 'test-user-id',
-      email: 'test@cinemaquest.com',
-      displayName: 'Test User',
-      photoURL: USER_AVATAR,
-    };
-    dispatch(addUser(testUser));
-    navigate('/browse');
+    const testUserEmail = 'test@cinemaquest.com';
+    const testUserPassword = 'TestUser123';
+  
+    // Populate the input fields with test user credentials
+    if (email.current && password.current) {
+      email.current.value = testUserEmail;
+      password.current.value = testUserPassword;
+    }
+  
+    // Automatically sign in the user
+    signInWithEmailAndPassword(auth, testUserEmail, testUserPassword)
+      .then(async (userCredential) => {
+        const user = userCredential.user;
+        await user.reload();
+        const { uid, displayName, email, photoURL } = user;
+        dispatch(addUser({ uid, email, displayName, photoURL }));
+        navigate('/browse');
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
   };
+  
 
   const handleButtonClick = () => {
     const emailValue = email.current?.value || '';
