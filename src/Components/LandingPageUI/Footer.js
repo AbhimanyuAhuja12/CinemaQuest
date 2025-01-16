@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FaFacebook, FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa';
+import { FaFacebook, FaTwitter, FaInstagram, FaYoutube, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 function Planet({ size, color, duration, delay, distance }) {
   return (
@@ -80,30 +80,49 @@ export default function Footer() {
           </motion.div>
           
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
-            <h3 className="text-xl font-bold mb-4">Connect With Us</h3>
-            <div className="flex space-x-4">
-              {[
-                { Icon: FaFacebook, color: "hover:text-blue-500" },
-                { Icon: FaTwitter, color: "hover:text-blue-400" },
-                { Icon: FaInstagram, color: "hover:text-pink-500" },
-                { Icon: FaYoutube, color: "hover:text-red-500" }
-              ].map(({ Icon, color }, index) => (
-                <motion.a
-                  key={index}
-                  href="#"
-                  className={`text-gray-400 ${color} transition-colors`}
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  whileTap={{ scale: 0.9 }}
-                >
-                  <Icon size={24} />
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.5, delay: 0.4 }}
+>
+  <h3 className="text-xl font-bold mb-4">Connect With Us</h3>
+  <div className="flex space-x-4">
+    {[
+      {
+        Icon: FaGithub,
+        color: "hover:text-gray-600",
+        href: "https://github.com/AbhimanyuAhuja12"
+      },
+      {
+        Icon: FaTwitter,
+        color: "hover:text-blue-400",
+        href: "https://x.com/Abhii_Ahuja"
+      },
+      {
+        Icon: FaInstagram,
+        color: "hover:text-pink-500",
+        href: "https://www.instagram.com/abhi_ahuja12/"
+      },
+      {
+        Icon: FaLinkedin,
+        color: "hover:text-blue-700",
+        href: "https://www.linkedin.com/in/abhimanyu-ahuja12/"
+      }
+    ].map(({ Icon, color, href }, index) => (
+      <motion.a
+        key={index}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`text-gray-400 ${color} transition-colors`}
+        whileHover={{ scale: 1.2, rotate: 5 }}
+        whileTap={{ scale: 0.9 }}
+      >
+        <Icon size={24} />
+      </motion.a>
+    ))}
+  </div>
+</motion.div>
+
           
           <motion.div
             initial={{ opacity: 0, x: 20 }}
