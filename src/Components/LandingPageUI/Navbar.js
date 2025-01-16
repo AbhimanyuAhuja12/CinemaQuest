@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaBars, FaTimes } from 'react-icons/fa';
+import "../../../src/Header.css"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,14 +15,21 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <motion.h1 
-              className="text-2xl font-bold text-primary"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5 }}
-            >
-              CinemaQuest
-            </motion.h1>
+          <div className="flex items-center">
+              <div className="animate-logo text-2xl sm:text-4xl font-extrabold">
+                <span className="text-red-600">C</span>
+                <span className="text-blue-600">i</span>
+                <span className="text-green-600">n</span>
+                <span className="text-yellow-600">e</span>
+                <span className="text-purple-600">m</span>
+                <span className="text-pink-600">a</span>
+                <span className="text-red-600">Q</span>
+                <span className="text-blue-600">u</span>
+                <span className="text-green-600">e</span>
+                <span className="text-yellow-600">s</span>
+                <span className="text-purple-600">t</span>
+              </div>
+            </div>
           </div>
           
           <div className="hidden md:block">

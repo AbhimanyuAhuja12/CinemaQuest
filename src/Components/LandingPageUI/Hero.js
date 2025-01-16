@@ -1,6 +1,6 @@
-import { motion } from 'framer-motion';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { useEffect, useState } from 'react';
+import { motion } from "framer-motion";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
   const [user, setUser] = useState(null);
@@ -16,22 +16,23 @@ export default function Hero() {
 
   const handleGetStarted = () => {
     if (user) {
-      window.location.href = '/browse';
+      window.location.href = "/browse";
     } else {
-      window.location.href = '/sign-in';
+      window.location.href = "/sign-in";
     }
   };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-primary to-secondary overflow-hidden">
       <div className="absolute inset-0 bg-black/50 z-10"></div>
-      
-      <div 
+
+      <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url("https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundImage:
+            'url("https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=2850&q=80")',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       ></div>
 
@@ -45,7 +46,8 @@ export default function Hero() {
             Discover Your Next Favorite Movie
           </h1>
           <p className="text-xl sm:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
-            Experience personalized movie recommendations powered by AI, tailored just for you.
+            Experience personalized movie recommendations powered by AI,
+            tailored just for you.
           </p>
           <motion.button
             onClick={handleGetStarted}
@@ -65,16 +67,20 @@ export default function Hero() {
         >
           <div className="flex flex-wrap justify-center gap-8 text-white">
             <div className="text-center">
-              <h3 className="text-4xl font-bold">10K+</h3>
-              <p className="text-gray-300">Active Users</p>
+              <h3 className="text-4xl font-bold">Explore Movies</h3>
+              <p className="text-gray-300">
+                Discover titles in over 15 languages.
+              </p>
             </div>
             <div className="text-center">
-              <h3 className="text-4xl font-bold">50K+</h3>
-              <p className="text-gray-300">Movies</p>
+              <h3 className="text-4xl font-bold">AI-Powered Suggestions</h3>
+              <p className="text-gray-300">
+                Personalized recommendations, just for you.
+              </p>
             </div>
             <div className="text-center">
-              <h3 className="text-4xl font-bold">15+</h3>
-              <p className="text-gray-300">Languages</p>
+              <h3 className="text-4xl font-bold">Seamless Search</h3>
+              <p className="text-gray-300">Find what you love in an instant.</p>
             </div>
           </div>
         </motion.div>
