@@ -24,7 +24,7 @@ const GptSearchBar = () => {
   const handleGptSearchClick = async () => {
     setIsLoading(true);
 
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
     const gptQuery =
       "Act as a movie recommendation system and suggest movies for the query : " +
       searchText.current.value +
