@@ -11,8 +11,9 @@ const lang = {
     topRatedTvShows: "Top Rated TV Shows",
     play: "Play",
     info: "More Info",
-    home : "Home",
-    gptSearch : "Search with GPT",
+    home: "Home",
+    gptSearch: "Search with GPT",
+    favouriteMovie: "Favourite Movie",
   },
   hindi: {
     search: "खोज",
@@ -26,8 +27,9 @@ const lang = {
     topRatedTvShows: "सर्वश्रेष्ठ रेटेड टीवी शो",
     play: "चलाएं",
     info: "अधिक जानकारी",
-     home: "मुखपृष्ठ", 
-     gptSearch: "जीपीटी खोज"
+    home: "मुखपृष्ठ",
+    gptSearch: "जीपीटी खोज",
+    favouriteMovie: "पसंदीदा फिल्म"
   },
   spanish: {
     search: "Buscar",
@@ -40,7 +42,10 @@ const lang = {
     popularShows: "Programas populares",
     topRatedTvShows: "Programas de TV mejor valorados",
     play: "Reproducir",
-    info: "Más información"
+    info: "Más información",
+    home: "Inicio",
+    gptSearch: "Buscar con GPT",
+    favouriteMovie: "Película Favorita",
   },
   chinese: {
     search: "搜索",
@@ -53,7 +58,10 @@ const lang = {
     popularShows: "热门节目",
     topRatedTvShows: "高评分电视节目",
     play: "播放",
-    info: "更多信息"
+    info: "更多信息",
+    home: "首页",
+    gptSearch: "GPT搜索",
+    favouriteMovie: "最喜爱的电影",
   },
   french: {
     search: "Rechercher",
@@ -66,7 +74,10 @@ const lang = {
     popularShows: "Émissions populaires",
     topRatedTvShows: "Les meilleures émissions TV",
     play: "Jouer",
-    info: "Plus d'informations"
+    info: "Plus d'informations",
+    home: "Accueil",
+    gptSearch: "Recherche GPT",
+    favouriteMovie: "Film Préféré",
   },
   arabic: {
     search: "بحث",
@@ -79,7 +90,10 @@ const lang = {
     popularShows: "عروض شائعة",
     topRatedTvShows: "أفضل العروض التلفزيونية تقييمًا",
     play: "تشغيل",
-    info: "مزيد من المعلومات"
+    info: "مزيد من المعلومات",
+    home: "الرئيسية",
+    gptSearch: "البحث بـ GPT",
+    favouriteMovie: "الفيلم المفضل",
   },
   bengali: {
     search: "অনুসন্ধান",
@@ -92,7 +106,10 @@ const lang = {
     popularShows: "জনপ্রিয় শো",
     topRatedTvShows: "শ্রেষ্ঠ রেটেড টিভি শো",
     play: "চালান",
-    info: "আরও তথ্য"
+    info: "আরও তথ্য",
+    home: "হোম",
+    gptSearch: "GPT অনুসন্ধান",
+    favouriteMovie: "প্রিয় চলচ্চিত্র",
   },
   russian: {
     search: "Поиск",
@@ -105,7 +122,10 @@ const lang = {
     popularShows: "Популярные шоу",
     topRatedTvShows: "Лучшие телешоу",
     play: "Воспроизвести",
-    info: "Подробнее"
+    info: "Подробнее",
+    home: "Главная",
+    gptSearch: "Поиск GPT",
+    favouriteMovie: "Любимый Фильм",
   },
   portuguese: {
     search: "Buscar",
@@ -118,7 +138,10 @@ const lang = {
     popularShows: "Programas populares",
     topRatedTvShows: "Melhores programas de TV",
     play: "Reproduzir",
-    info: "Mais informações"
+    info: "Mais informações",
+    home: "Início",
+    gptSearch: "Busca GPT",
+    favouriteMovie: "Filme Favorito",
   },
   urdu: {
     search: "تلاش کریں",
@@ -131,7 +154,10 @@ const lang = {
     popularShows: "مشہور شوز",
     topRatedTvShows: "اعلی درجہ بندی والے ٹی وی شوز",
     play: "چلائیں",
-    info: "مزید معلومات"
+    info: "مزید معلومات",
+    home: "گھر",
+    gptSearch: "GPT تلاش",
+    favouriteMovie: "پسندیدہ فلم",
   },
   indonesian: {
     search: "Cari",
@@ -144,7 +170,10 @@ const lang = {
     popularShows: "Acara Populer",
     topRatedTvShows: "Acara TV Terbaik",
     play: "Putar",
-    info: "Info Lebih Lanjut"
+    info: "Info Lebih Lanjut",
+    home: "Beranda",
+    gptSearch: "Pencarian GPT",
+    favouriteMovie: "Film Favorit",
   },
   german: {
     search: "Suchen",
@@ -157,7 +186,10 @@ const lang = {
     popularShows: "Beliebte Shows",
     topRatedTvShows: "Top-bewertete TV-Shows",
     play: "Abspielen",
-    info: "Mehr Infos"
+    info: "Mehr Infos",
+    home: "Startseite",
+    gptSearch: "GPT-Suche",
+    favouriteMovie: "Lieblingsfilm",
   },
   japanese: {
     search: "検索",
@@ -170,7 +202,10 @@ const lang = {
     popularShows: "人気番組",
     topRatedTvShows: "高評価のテレビ番組",
     play: "再生",
-    info: "詳細情報"
+    info: "詳細情報",
+    home: "ホーム",
+    gptSearch: "GPT検索",
+    favouriteMovie: "お気に入りの映画",
   },
   tamil: {
     search: "தேடல்",
@@ -183,7 +218,10 @@ const lang = {
     popularShows: "பிரபலமான நிகழ்ச்சிகள்",
     topRatedTvShows: "சிறந்த மதிப்பீடு டிவி நிகழ்ச்சிகள்",
     play: "விளையாடு",
-    info: "மேலும் தகவல்"
+    info: "மேலும் தகவல்",
+    home: "முகப்பு",
+    gptSearch: "GPT தேடல்",
+    favouriteMovie: "விருப்பமான படம்",
   },
   telugu: {
     search: "వెతకండి",
@@ -196,7 +234,10 @@ const lang = {
     popularShows: "ప్రసిద్ధ షోలు",
     topRatedTvShows: "అత్యుత్తమంగా రేట్ చేయబడిన టీవీ షోలు",
     play: "ప్లే",
-    info: "మరింత సమాచారం"
+    info: "మరింత సమాచారం",
+    home: "హోమ్",
+    gptSearch: "GPT శోధన",
+    favouriteMovie: "ఇష్టమైన సినిమా",
   },
   turkish: {
     search: "Ara",
@@ -209,7 +250,10 @@ const lang = {
     popularShows: "Popüler Şovlar",
     topRatedTvShows: "En Beğenilen TV Şovları",
     play: "Oynat",
-    info: "Daha Fazla Bilgi"
+    info: "Daha Fazla Bilgi",
+    home: "Ana Sayfa",
+    gptSearch: "GPT Arama",
+    favouriteMovie: "Favori Film",
   },
   vietnamese: {
     search: "Tìm kiếm",
@@ -222,8 +266,11 @@ const lang = {
     popularShows: "Chương trình phổ biến",
     topRatedTvShows: "Chương trình truyền hình đánh giá cao",
     play: "Phát",
-    info: "Thông tin thêm"
-  }
+    info: "Thông tin thêm",
+    home: "Trang chủ",
+    gptSearch: "Tìm kiếm GPT",
+    favouriteMovie: "Phim Yêu Thích",
+  },
 };
 
 export default lang;

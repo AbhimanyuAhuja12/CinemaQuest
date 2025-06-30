@@ -13,7 +13,7 @@ const SecondaryContainer = () => {
       <div className="-mt-52 pl-12 relative z-20">
         {/* Movie Lists */}
          {favouriteMovies?.length > 0 && (
-          <MovieList title="Favourite Movies" movies={favouriteMovies} />
+          <MovieList title={lang[langKey].favouriteMovie} movies={favouriteMovies} />
         )}
         <MovieList title={lang[langKey].upcomingMovies} movies={movies.UpcomingMovies} />
         <MovieList title={lang[langKey].topRated} movies={movies.TopRatedMovies} />
